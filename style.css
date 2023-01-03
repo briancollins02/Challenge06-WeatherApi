@@ -1,0 +1,49 @@
+* {
+    font-size: 16px;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: darkolivegreen;
+    width: 85vw;
+    height: 70vh;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+#search-box {
+    margin: 2rem;
+    padding: .5rem;
+    border-style: solid;
+    border-color: darkolivegreen;
+}
+
+#weather-display {
+    display: flex;
+    flex-direction: column;
+}
+
+#current-weather {
+    margin: 2rem .5rem .5rem .5rem;
+}
+
+#five-forcast {
+    display: flex;
+    flex-direction: row;
+}
+
+#five-forcast > * {
+    border-style: solid;
+    border-color: darkolivegreen;
+    margin: .5rem;
+    padding: .5rem;
+}
+
+#five-forcast > * > * {
+    margin: .5rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
