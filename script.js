@@ -1,5 +1,3 @@
-console.log('connected!')
-
 var apiKey = 'b08765019bb00fec232c2ee01f244d3b';
 
 var searchButton = document.getElementById('search-button');
@@ -12,7 +10,6 @@ function getApi(longitude, latitude) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
         writeCurrentData(data);
     });
 };
@@ -20,37 +17,34 @@ function getApi(longitude, latitude) {
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
     // get textbox val and assign it to a variable and remove any spaces
-    let location = document.getElementById('text-box').value.replace(/\s/g, '');
+    let location = document.getElementById('text-box').value;
     alert(location);
     // call function that transaltes location into long/lat
-    // longLatTranslation(location);
-
-    console.log('click!')
+    longLatTranslation(location);
     saveHistory(location);
 });
 
+function displayCity(data){
+    document.getElementById('city-name').textContent = data;
+}
+
 function longLatTranslation(location) {
-    console.log('nobozo');
     let translatorUrl = 'http://api.openweathermap.org/geo/1.0/direct?q='+ location +'&limit=2&appid=' + apiKey;
     fetch(translatorUrl)
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
         let longitude = data[0].lon;
         let latitude = data[0].lat;
 
-        console.log(longitude, latitude);
         getApi(longitude, latitude);
+        displayCity(location);
     });
 
 };
 
 function writeCurrentData(data) {
-    console.log(data);
-
-    document.getElementById('city-name').textContent = data.name;
     document.getElementById('temp').textContent = data.current.temp + '°F';
     document.getElementById('cloud-cover').textContent = data.current.clouds + '% Cloud Cover';
     document.getElementById('wind').textContent = data.current.wind_speed + ' Mph Winds';
@@ -80,10 +74,9 @@ function createMenuItem(name) {
 };
 
 document.addEventListener('click', function() {
-    let clicked = document.activeElement.value;
-    if (clicked.classList.contains('history-button') = true){
-        console.log(clicked);
-        historyButton(clicked);
+    let clicked = document.activeElement;
+    if (clicked.classList.contains('history-button')){
+        historyButton(clicked.value);
     } else {
         return;
     };
@@ -92,5 +85,4 @@ document.addEventListener('click', function() {
 function historyButton(data) {
     document.getElementById('text-box').value = data;
     longLatTranslation(data);
-    console.log('translate!');
-}
+};
