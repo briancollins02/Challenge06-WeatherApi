@@ -1,23 +1,28 @@
 * {
     font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+body {
+    background: linear-gradient(#44adb8, #d7f7a0);
+    height: 100vh;
 }
 
 #page-container {
     display: flex;
     flex-direction: row;
-    border-style: solid;
-    border-color: darkolivegreen;
+    border-radius: 1rem 3rem;
     width: 85vw;
     height: 70vh;
     padding: 2rem;
-    margin: 1rem;
+    margin: 0 auto;
+    background-color: rgba(0,0,0, .2);
 }
 
 #search-box {
     margin: 2rem;
-    padding: .5rem;
-    border-style: solid;
-    border-color: darkolivegreen;
+    padding: 1rem;
+    border-radius: .25rem 1rem;
 }
 
 #weather-display {
@@ -35,19 +40,86 @@
 }
 
 #five-forcast > * {
-    border-style: solid;
-    border-color: darkolivegreen;
     margin: .5rem;
     padding: .5rem;
+    flex: 1 1 0px;
+    padding: 2rem .5rem;
 }
 
 #five-forcast > * > * {
     margin: .5rem;
     display: flex;
     flex-wrap: nowrap;
+    color: #fff;
 }
 
 #search-history {
     display: flex;
     flex-direction: column;
+}
+
+#city-name {
+    font-size: 3rem;
+}
+
+#temp {
+    font-size: 2rem;
+}
+
+.day-box {
+    border-radius: .25rem 1rem ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container, .day-box {
+    background-color: rgba(0,0,0, .2);
+}
+
+.backdrop {
+    background-color: rgba(0,0,0, .2);
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+#text-box {
+    border-radius: .25rem 1rem;
+    border-color: darkolivegreen;
+    padding: 0 0 0 1rem;
+    background-color: rgba(255, 255, 255, 0.252);
+    color: white;
+}
+
+#text-box::placeholder {
+    color: rgba(255,255,255,.75);
+    font-style: italic;
+}
+
+#search-button {
+    border-radius: .125rem .75rem;
+    margin: 0 0 1rem 
+}
+
+#current-weather {
+    color: white;
+}
+
+.date {
+    font-size: 1.5rem;
+}
+
+.history-button {
+    background-color: rgba(255,255,255, .25);
+    color: #fff;;
+    width: 75%;
+    align-self: center;
+}
+
+.temp {
+    font-size: 1.5rem;
 }
