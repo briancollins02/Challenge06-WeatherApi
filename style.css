@@ -47,3 +47,7 @@
     flex-wrap: nowrap;
 }
 
+#search-history {
+    display: flex;
+    flex-direction: column;
+}
