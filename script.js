@@ -29,7 +29,7 @@ function displayCity(data){
 }
 
 function longLatTranslation(location) {
-    let translatorUrl = 'http://api.openweathermap.org/geo/1.0/direct?q='+ location +'&limit=2&appid=' + apiKey;
+    let translatorUrl = 'https://api.openweathermap.org/geo/1.0/direct?q='+ location +'&limit=2&appid=' + apiKey;
     fetch(translatorUrl)
     .then(function (response) {
         return response.json();
